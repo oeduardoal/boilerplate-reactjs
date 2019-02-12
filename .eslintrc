@@ -13,7 +13,19 @@
         "extensions": [".js", ".jsx"]
       }
     ],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "global-require": "off",
-    "import/prefer-default-import": "off"
+    "import/prefer-default-import": "off",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["~"]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": []
+    }
   }
 }
