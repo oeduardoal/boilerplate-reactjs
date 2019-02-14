@@ -1,7 +1,9 @@
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 
 import reduces from './reducers';
 
-const store = createStore(reduces);
+const createAppropriateStore = process.env.NODE_ENV === 'development' ? console.tron.createStore : createStore;
+
+const store = createAppropriateStore(reduces, compose(applyMiddleware(...[])));
 
 export default store;
