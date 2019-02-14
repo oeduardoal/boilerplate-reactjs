@@ -29,7 +29,7 @@ class Main extends Component {
   };
 
   static propTypes = {
-    addFavorite: PropTypes.func.isRequired,
+    addFavoriteRequest: PropTypes.func.isRequired,
     inputRepo: PropTypes.string,
     favorites: PropTypes.arrayOf(
       PropTypes.shape({
@@ -47,7 +47,7 @@ class Main extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addFavorite();
+    this.props.addFavoriteRequest(this.state.inputRepo);
     console.log(this.state.inputRepo);
   };
 
