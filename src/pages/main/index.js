@@ -27,6 +27,7 @@ class Main extends Component {
   static propTypes = {
     addFavoriteRequest: PropTypes.func.isRequired,
     favorites: PropTypes.shape({
+      error: PropTypes.oneOfType([PropTypes.string, PropTypes.any]),
       loading: PropTypes.bool,
       data: PropTypes.arrayOf(
         PropTypes.shape({
@@ -60,6 +61,7 @@ class Main extends Component {
           />
           <button type="submit">Submit</button>
           {this.props.favorites.loading && <span>Carregando...</span>}
+          {!!this.props.favorites.error && <span>{this.props.favorites.error}</span>}
         </form>
         <ul>
           {this.props.favorites.data.map(item => (
