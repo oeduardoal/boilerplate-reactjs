@@ -4,13 +4,13 @@ import './config/reactotron';
 import store from '~/store';
 import withRoot from '~/styles';
 import { withStyles } from '@material-ui/core';
-import TodoList from './TodoList';
+import Routes from '~/routes';
 
 const styles = theme => ({ ...theme });
 
 const App = () => (
   <Provider store={store}>
-    <TodoList />
+    <Routes />
   </Provider>
 );
 
