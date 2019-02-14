@@ -9,6 +9,8 @@ export default function todos(state = INITIAL_STATE, action) {
           text: action.payload.text,
         },
       ];
+    case 'REMOVE_TODO':
+      return state.filter(item => item.id !== action.payload.idTodo);
     default:
       return state;
   }
