@@ -24,31 +24,29 @@ const styles = {
 };
 
 class Main extends Component {
-  static defaultProps = {
-    inputRepo: 'facebook/react',
-  };
-
   static propTypes = {
     addFavoriteRequest: PropTypes.func.isRequired,
-    inputRepo: PropTypes.string,
-    favorites: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-        description: PropTypes.string,
-        url: PropTypes.string,
-      }),
-    ).isRequired,
+    favorites: PropTypes.shape({
+      loading: PropTypes.bool,
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+          name: PropTypes.string,
+          description: PropTypes.string,
+          url: PropTypes.string,
+        }),
+      ),
+    }).isRequired,
   };
 
   state = {
-    inputRepo: 'aaaa',
+    inputRepo: '',
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addFavoriteRequest(this.state.inputRepo);
-    console.log(this.state.inputRepo);
+    this.setState({ inputRepo: '' });
   };
 
   render() {
@@ -57,19 +55,20 @@ class Main extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             placeholder="user/repo"
-            value={this.state.nputRepo}
+            value={this.state.inputRepo}
             onChange={e => this.setState({ inputRepo: e.target.value })}
           />
           <button type="submit">Submit</button>
+          {this.props.favorites.loading && <span>Carregando...</span>}
         </form>
         <ul>
-          {this.props.favorites.map(item => (
+          {this.props.favorites.data.map(item => (
             <li key={item.id}>
               <p>
                 <strong>{item.name}</strong>
-                (
+(
                 {item.description}
-                )
+)
               </p>
               <a href={item.url}>Link to</a>
             </li>
