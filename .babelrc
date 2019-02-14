@@ -2,6 +2,7 @@
   "plugins": [
     [
       "babel-plugin-root-import",
+      "@babel/plugin-proposal-class-properties",
       {
         "rootPathSuffix": "src"
       }

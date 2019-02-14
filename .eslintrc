@@ -7,7 +7,6 @@
   },
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
-    "react/prop-types": "off",
     "react/jsx-filename-extension": [
       "error",
       {
@@ -18,12 +17,14 @@
     "global-require": "off",
     "import/prefer-default-import": "off",
     "import/prefer-default-export": "off",
+    "react/destructuring-assignment": "off",
     "import/no-unresolved": [
       "error",
       {
         "ignore": ["~"]
       }
-    ]
+    ],
+    "react/no-unused-prop-types": "off"
   },
   "settings": {
     "import/resolver": {
