@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as FavoriteActions from '~/store/actions/favorites';
+import { Creators as FavoriteActions } from '~/store/ducks/favorites';
 import PropTypes from 'prop-types';
 import withRoot from '~/styles';
 import { withStyles } from '@material-ui/core';
