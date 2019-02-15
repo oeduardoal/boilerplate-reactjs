@@ -1,7 +1,7 @@
 {
-  "name": "web-tanque-facil-full",
+  "name": "boilerplate-reactjs",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@material-ui/core": "latest",
     "axios": "^0.18.0",
