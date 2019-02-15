@@ -11,17 +11,17 @@ const theme = createMuiTheme({
     primary: {
       light: orange[300],
       main: orange[500],
-      dark: orange[700],
+      dark: orange[700]
     },
     secondary: {
       light: indigo[300],
       main: indigo[500],
-      dark: indigo[700],
-    },
+      dark: indigo[700]
+    }
   },
   typography: {
-    useNextVariants: true,
-  },
+    useNextVariants: true
+  }
 });
 
 function withRoot(Component) {
