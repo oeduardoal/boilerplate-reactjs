@@ -1,53 +1,18 @@
-/**
- * Types
- */
+import { createReducer, createActions } from 'reduxsauce';
+import Immutable from 'seamless-immutable';
 
-export const Types = {
-  ADD_REQUEST: 'favorites/ADD_REQUEST',
-  ADD_SUCCESS: 'favorites/ADD_SUCCESS',
-  ADD_FAILURE: 'favorites/ADD_FAILURE'
-};
+const { Types, Creators } = createActions({
+  addFavoriteRequest: null
+});
 
-/**
- * Reducers
- */
-const INITIAL_STATE = {
+export const FavoriteTypes = Types;
+export default Creators;
+
+const INITIAL_STATE = Immutable({
   loading: false,
   data: []
-};
+});
 
-export default function favorites(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case Types.ADD_REQUEST:
-      return { ...state, loading: true };
-    case Types.ADD_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        data: [...state.data, action.payload.data]
-      };
-    case Types.ADD_FAILURE:
-      return { ...state, loading: false, error: action.payload.error };
-    default:
-      return state;
-  }
-}
-
-/**
- * Actions request -> saga -> api -> success
- */
-export const Creators = {
-  addFavoriteRequest: repository => ({
-    type: Types.ADD_REQUEST,
-    payload: { repository }
-  }),
-  addFavoriteSuccess: data => ({
-    type: Types.ADD_SUCCESS,
-    payload: { data }
-  }),
-  addFavoriteFailure: error => ({
-    type: Types.ADD_FAILURE,
-    payload: { error }
-  })
-};
+export const reducer = createReducer(INITIAL_STATE, {
+  [Types.ADD_REQUEST]: state => state.merge({ loading: true })
+});
