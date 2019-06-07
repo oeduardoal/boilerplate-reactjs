@@ -14,5 +14,5 @@ const INITIAL_STATE = Immutable({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.ADD_REQUEST]: state => state.merge({ loading: true })
+  [Types.ADD_FAVORITE_REQUEST]: state => state.merge({ loading: true })
 });
